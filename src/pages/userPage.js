@@ -16,18 +16,17 @@ const UserPage = () => {
     const fetchUserData = () =>{
         const resultRef = db.collection('Result')
         const {uid} =auth.currentUser
-        // let quer = query(resultRef, where('userId' '=='))
        let tempData = []
        let tempGraphData = []
         resultRef
-        .where("userID" ,"==", uid)
+        .where("userId" ,"==", uid)
         .get()
         .then((snapshot)=>{
-            snapshot.docs.map((doc)=>{
-                // console.log(doc.data())
+            snapshot.docs.map((doc) => {
+                console.log(doc.data())
                 tempData.push({ ...doc.data() })
                 // console.log(tempData)
-                tempGraphData.push([doc.data().timeStamp.toDate().toLocaleString(), doc.data().wpm])
+                tempGraphData.push([doc.data().timeStamp.toDate().toLocaleString().split(',')[0], doc.data().wpm])
             });
             setData(tempData)
             setGraphData(tempGraphData)
@@ -35,7 +34,7 @@ const UserPage = () => {
         
     }
     useEffect(()=>{
-        // fetchUserData()
+      
         if(!loading){
            fetchUserData()
     // console.log(data)
@@ -49,8 +48,12 @@ const UserPage = () => {
    
   return (
     <div className='canvas'>
+      <div>
       <Graph graphData={graphData}/>
+      </div>
+      <div>
       <TableData data={data} />
+      </div>
     </div>
   )
 }

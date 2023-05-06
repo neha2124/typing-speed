@@ -28,20 +28,23 @@ const TableData = ({data}) => {
             </TableHead>
             <TableBody>
               {data.map((i)=>{
-                <TableRow>
-                    <TableCell>
+
+                return(<TableRow>
+                    <TableCell style={style}>
+                        
                        {i.wpm}
                     </TableCell>
-                    <TableCell>
+                    <TableCell style={style}>
                        {i.accuracy}
                     </TableCell>
-                    <TableCell>
+                    <TableCell style={style}>
                       {i.charaters}
                     </TableCell>
-                    <TableCell>
+                    <TableCell style={style}>
                       {i.timeStamp.toDate().toLocaleString()}
                     </TableCell>
                 </TableRow>
+                )
               })}
             </TableBody>
         </Table>
