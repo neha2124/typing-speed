@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { CircularProgress } from '@mui/material'
 import TableData from '../component/TableData'
 import Graph from '../component/graph'
+import UserInfo from '../component/userInfo'
 const UserPage = () => {
     const [data, setData] = useState([])
     const [graphData, setGraphData] = useState([])
@@ -20,6 +21,7 @@ const UserPage = () => {
        let tempGraphData = []
         resultRef
         .where("userId" ,"==", uid)
+        // .orderBy('timeStamp', 'desc')
         .get()
         .then((snapshot)=>{
             snapshot.docs.map((doc) => {
@@ -47,7 +49,8 @@ const UserPage = () => {
     },[loading])
    
   return (
-    <div className='canvas'>
+    <div className='canvas userPage'>
+      <UserInfo total={data.length}/>
       <div>
       <Graph graphData={graphData}/>
       </div>

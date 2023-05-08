@@ -152,4 +152,51 @@ body{
   margin:auto;
   
 }
+.userPage{
+  width:1000px;
+  margin:auto;
+
+}
+.user-info{
+  display:flex;
+  align-item:center;
+  // justify-content:center;
+  // flex-direction:column;
+  background:#29464cf0;
+  // opacity:.6;
+  height:170px;
+  width:1000px;
+  margin:auto;
+  border-radius:10px
+}
+.account{
+  width:50%;
+  border-right: 2px solid;
+  font-size:1.5rem;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap: 2rem;
+  // flex-direction:column;
+  margin:3rem;
+
+}
+.info{
+  display:flex;
+  flex-direction : column;
+}
+.user-icon{
+  transform:scale(4);
+  margin-top:12px;
+}
+
+  
+
+.total-test{
+  
+  font-size:2rem;
+  display:flex;
+  align-items:center;
+  width: 50%;
+}
 `
