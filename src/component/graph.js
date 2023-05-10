@@ -10,6 +10,7 @@ import {
     Legend
 } from 'chart.js'
 import { Line } from 'react-chartjs-2'
+import { useTheme } from './context/ThemeMode'
 // import { Chart } from 'chart.js/dist'
 
 ChartJs.register(
@@ -22,6 +23,7 @@ ChartJs.register(
     Legend
 )
 const Graph = ({graphData}) => {
+   const{theme}= useTheme()
   return (
     <>
     <Line
@@ -34,7 +36,7 @@ const Graph = ({graphData}) => {
                 {
                     data:graphData.map((i)=>i[1]),
                     label:'WPM',
-                    borderColor:'#c06a93'
+                    borderColor:theme.color
                 },
             
                     

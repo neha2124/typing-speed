@@ -5,8 +5,8 @@ export const GlobalStyle = createGlobalStyle`
     box-sizzing: border-box;
 }
 body{
-    background-color:#323437;
-    color:#d1d0c5;
+    background-color:${({theme}) => theme.background};
+    color:${({theme}) => theme.TypeBox};
     margin:0;
     padding:0;
     transition: all 0.25s linear
@@ -43,25 +43,29 @@ body{
 .input-box{
  opacity:0;
 }
+.logo img{
+  width:30px;
+  border-radius:20px;
+}
 .current{
   border-left: 1px solid white;
   animation: blink 2s infinite ease;
 
   @keyframes blink{
     0%{
-      border-left: 1px solid white;
+      border-left: 1px solid ${({theme})=>theme.TypeBox};
     }
     25%{
-      border-left: 1px solid black;
+      border-left: 1px solid ${({theme})=> theme.background};
     }
     50%{
-      border-left: 1px solid white;
+      border-left: 1px solid ${({theme})=>theme.TypeBox};
     }
     75%{
-      border-left: 1px solid black;
+      border-left: 1px solid ${({theme})=> theme.background};
     }
     100%{
-      border-left: 1px solid white;
+      border-left: 1px solid ${({theme})=>theme.TypeBox};
     }
 
   }
@@ -72,26 +76,26 @@ body{
 
   @keyframes blink-right{
     0%{
-      border-right: 1px solid white;
+      border-right: 1px solid ${({theme}) => theme.TypeBox};
     }
     25%{
-      border-right: 1px solid black;
+      border-right: 1px solid ${({theme})=> theme.background};
     }
     50%{
-      border-right: 1px solid white;
+      border-right: 1px solid ${({theme}) => theme.TypeBox};
     }
     75%{
-      border-right: 1px solid black;
+      border-right: 1px solid ${({theme})=> theme.background};
     }
     100%{
-      border-right: 1px solid white;
+      border-right: 1px solid ${({theme}) => theme.TypeBox};
     }
 
   }
 
 }
 .correct{
-  color:green;
+  color:${({theme})=> (theme.color)};
 }
 .incorrect{
   color:red;
@@ -138,12 +142,12 @@ body{
 }
 .title{
   font-size: 31px;
-    color: #db7093a3;
+    color: ${({theme})=> theme.TypeBox};
     padding: 5px;
 }
 .subtitle{
   font-size: 40px;
-    color: palevioletred;
+    color:${({theme})=> theme.color};
 }
 .header-component{
   display:flex;
@@ -162,7 +166,7 @@ body{
   align-item:center;
   // justify-content:center;
   // flex-direction:column;
-  background:#29464cf0;
+  background:${({theme})=> theme.background};
   // opacity:.6;
   height:170px;
   width:1000px;
@@ -188,6 +192,7 @@ body{
 .user-icon{
   transform:scale(4);
   margin-top:12px;
+  color:${({theme})=> theme.color}
 }
 
   
@@ -198,5 +203,6 @@ body{
   display:flex;
   align-items:center;
   width: 50%;
+  
 }
 `

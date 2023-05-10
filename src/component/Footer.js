@@ -1,14 +1,16 @@
 import React,{useState} from 'react'
 import Select from 'react-select'
-import { ThemeOptions } from '../utils/ThemeContet'
-import {useTheme }  from './context/ThemeContext'
+import { themeOptions } from '../utils/ThemeContet'
+import { useTheme }  from './context/ThemeMode.js'
 
 const Footer = () => {
-    // const {setTheme} = useTheme()
-    const [value, setValue] = useState()
+    
+    // const [value, setValue] = useState()
+    const {setTheme,theme} = useTheme()
     const handleChange = (e) =>{
-          setValue(e.value)
-        //   setTheme(e.value)
+          // setValue(e.value)
+          setTheme(e.value)
+          localStorage.setItem('theme',JSON.stringify(e.value))
     }
   return (
     <div className='footer-section'>
@@ -17,10 +19,25 @@ const Footer = () => {
         </div>
         <div className="theme-section">
             <Select
-            value={value}
+            // value={value}
             onChange={handleChange}
-            options={ThemeOptions}
+            options={themeOptions}
             menuPlacement='top'
+             defaultValue = {{label:'theme',value:'theme'}}
+             
+
+            styles={{
+              control: styles =>({...styles, backgroundColor:theme.background, color:theme.color}),
+              menu: styles =>({...styles, backgroundColor: theme.background}),
+              option :(styles,{isFocused})=>{
+                return {
+                  ...styles,
+                  backgroundColor:(!isFocused)? theme.background : theme.color,
+                  color: (!isFocused) ? theme.color: theme.background,
+                  cursor:'pointer'
+                }
+              }
+            }}
         >
             </Select>
         </div>

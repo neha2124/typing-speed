@@ -1,9 +1,11 @@
 import React from 'react'
 import { TableContainer,TableCell,TableRow,TableHead,TableBody,Table } from '@mui/material'
+import { useTheme } from './context/ThemeMode'
 
 const TableData = ({data}) => {
+  const {theme} = useTheme()
     const style = {
-        color:'white',
+        color:theme.color,
         textAlign:'center'
     }
   return (

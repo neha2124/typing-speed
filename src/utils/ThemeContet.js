@@ -5,14 +5,37 @@ const darkTheme ={
     TypeBox:'grey'
 }
 
-const redTheme = {
-name: 'red',
-background:'red',
+const fledgeTheme = {
+name: 'fledge',
+background:'#3b363f',
 color:'white',
-TypeBox:'pink'
+TypeBox:'#6c4858'
+}
+const dark_80s = {
+    name: "dark-80",
+    background:'#1b1d36',
+    color:'white',
+    TypeBox:'#93cde2'
+
+}
+const dolphin = {
+    name: 'dolphin',
+    background:'#003950',
+    color:'#81e8fe',
+    TypeBox:'#00cfea'
+}
+const cafe = {
+    name: 'cafe',
+    background: '#ceb18d',
+    color:'#14120f',
+    TypeBox:'#d4d0cd'
 }
 
-export const ThemeOptions = [
+export const themeOptions = [
     {label:'dark' , value:darkTheme},
-    {label: 'red' , value:redTheme}
+    {label: 'fledge' , value:fledgeTheme},
+    {label: 'dark-80' , value:dark_80s},
+    {label:'dolphin' , value:dolphin},
+    {label: 'cafe' , value: cafe}
+
 ]

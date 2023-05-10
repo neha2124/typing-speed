@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { TestModeProvider } from './component/context/TestMode';
-// import  {ThemeProvider}  from './component/context/ThemeContext';
+import  {ThemeContextProvider}  from './component/context/ThemeMode.js';
 // import './index.css';
 import App from './App';
 import { BrowserRouter } from 'react-router-dom';
@@ -10,13 +10,13 @@ import { BrowserRouter } from 'react-router-dom';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    {/* <ThemeProvider> */}
+    <ThemeContextProvider>
      <TestModeProvider>
       <BrowserRouter>
       <App />
       </BrowserRouter>
       </TestModeProvider>
-    {/* </ThemeProvider> */}
+    </ThemeContextProvider> 
   </React.StrictMode>
 );
 
