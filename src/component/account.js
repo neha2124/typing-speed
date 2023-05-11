@@ -76,6 +76,7 @@ const Account = () => {
                 progress: undefined,
                 theme: "light",
             })
+            handleChange()
         }).catch((err) => {
             toast.error(errorMapping[err.code] || 'some error occured', {
                 position: "top-right",

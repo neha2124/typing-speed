@@ -12,6 +12,7 @@ const TypeBox = () => {
   const [randomWord, setRandoWord] = useState(() => {
     return randomWords(50)
   })
+
   const [wordIndex, setWordIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   // const [intervalId, setIntervalId] = useState(null)
@@ -87,11 +88,11 @@ const TypeBox = () => {
 
       let correctCharInWord = wordsRef[wordIndex].current.querySelectorAll('.correct')
       // let a = Array.from(correctCharInWord)
-      console.log(correctCharInWord)
+      // console.log(correctCharInWord)
       if(allchar.length === correctCharInWord.length){
       setCorrectWord(correctWord+1)
       }
-      console.log(correctWord)
+      // console.log(correctWord)
       
       if (allchar.length <= charIndex) {
         allchar[charIndex - 1].classList.remove('current-right')

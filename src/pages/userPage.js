@@ -21,7 +21,7 @@ const UserPage = () => {
        let tempGraphData = []
         resultRef
         .where("userId" ,"==", uid)
-        // .orderBy('timeStamp', 'desc')
+        .orderBy('timeStamp', 'desc')
         .get()
         .then((snapshot)=>{
             snapshot.docs.map((doc) => {
@@ -31,7 +31,7 @@ const UserPage = () => {
                 tempGraphData.push([doc.data().timeStamp.toDate().toLocaleString().split(',')[0], doc.data().wpm])
             });
             setData(tempData)
-            setGraphData(tempGraphData)
+            setGraphData(tempGraphData.reverse())
         })
         
     }
